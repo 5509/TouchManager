@@ -51,7 +51,8 @@
         move: null,
         end: null,
         hold: null,
-        holdout: null
+        holdout: null,
+        holdtime: 500
       };
       for (c in conf) {
         this.conf[c] = conf[c];
@@ -100,7 +101,7 @@
         this.timer = setTimeout(function() {
           _this.holding = true;
           _this.conf.hold.call(_this);
-        }, 500);
+        }, this.conf.holdtime || 500);
       }
       this.scrolling = true;
       this.move_ready = false;

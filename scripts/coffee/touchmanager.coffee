@@ -41,7 +41,8 @@ window.TouchManager = class TouchManager
       move: null,
       end: null,
       hold: null,
-      holdout: null
+      holdout: null,
+      holdtime: 500
 
     for c of conf
       @conf[c] = conf[c]
@@ -91,7 +92,7 @@ window.TouchManager = class TouchManager
         @holding = yes
         @conf.hold.call(@)
         return
-      500)
+      @conf.holdtime or 500)
 
     @scrolling = yes
     @move_ready = no
